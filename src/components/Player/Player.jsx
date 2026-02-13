@@ -14,7 +14,7 @@ export default function Player({ initialName, symbol }) {
   }
 
   let playerName = <span className="player-name">{name}</span>
-  if (editing) playerName = <input type="text" value={name} onChange={handleChange} />;
+  if (editing) playerName = <input type="text" value={name} onChange={handleChange} maxLength={15} />;
 
   return <div className="player">
     {playerName}
