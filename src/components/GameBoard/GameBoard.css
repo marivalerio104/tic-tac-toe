@@ -1,0 +1,29 @@
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin: 0.7rem;
+  
+}
+
+#game-board button {
+  aspect-ratio: 1;
+  background: #88abff;
+  cursor: pointer;
+  border: none;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  font-size: min(8vw, 5rem);
+  font-size: 5.7rem;
+  font-family: 'Caprasimo', cursive;
+  color: #1a338d;
+}
+
+#game-board button:disabled {
+  cursor: default;
+}
+
+@media (max-width: 500px) {
+  #game-board button {
+    font-size: 3rem;
+  }
+}
