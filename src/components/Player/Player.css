@@ -1,0 +1,45 @@
+.player-name {
+  display: inline-block;
+  margin: 0.5rem 0;
+  width: 9rem;
+}
+
+.player input {
+  width: 9rem;
+  padding: 0.5rem;
+  margin: 0 0.5rem 0 -0.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #ddd;
+  animation: pulse-text 1.3s infinite;
+}
+
+.player button {
+  border: none;
+  color: #465db0;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  font-family: inherit;
+  margin: 0.5rem;
+  width: 2.7rem;
+}
+
+.player button:hover {
+  color: #7198f2;
+}
+
+@keyframes pulse-text {
+  0% {
+    color: #000;
+  }
+
+  50% {
+    color: #777;
+  }
+
+  100% {
+    color: #000;
+  }
+}
