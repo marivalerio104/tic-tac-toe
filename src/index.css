@@ -18,19 +18,19 @@
 
 body {
   min-height: 100vh;
-  padding: 2rem;
+  padding: 2.5rem 2rem;
 }
 
 header img {
   display: block;
-  width: 8.5rem;
+  width: 9rem;
   margin: 0 auto 1rem auto;
   filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.3));
 }
 
 h1 {
   font-family: 'Caprasimo', cursive;
-  font-size: 3rem;
+  font-size: 3.3rem;
   color: #eeeeee;
   text-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
   text-align: center;

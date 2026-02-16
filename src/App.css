@@ -1,6 +1,6 @@
 #game-container {
   max-width: 34rem;
-  margin: 2rem auto;
+  margin: 2rem auto 0;
   padding: 1.5rem 2rem 2rem;
   border-radius: 1.7%;
   background-color: #eee;
