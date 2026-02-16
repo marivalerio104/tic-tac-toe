@@ -12,18 +12,18 @@
   cursor: pointer;
   border: none;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  font-size: min(8vw, 5rem);
   font-size: 5.7rem;
-  font-family: 'Caprasimo', cursive;
+  font-family: cursive;
   color: #1a338d;
+  font-weight: 900;
 }
 
 #game-board button:disabled {
   cursor: default;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 550px) {
   #game-board button {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
 }

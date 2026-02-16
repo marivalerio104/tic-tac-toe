@@ -1,27 +1,22 @@
 import { useState } from 'react'
 import './Player.css'
 
-export default function Player({ initialName, symbol, active }) {
-  const [name, setName] = useState(initialName);
+export default function Player({ name, symbol, active, setPlayer }) {
   const [editing, setEditing] = useState(false);
 
-  function handleChange(event) {
-    setName(event.target.value)
-  }
-
-  function handleClick() {
-    setEditing(prev => !prev)
-  }
-
-  let playerName = <span className="player-name">{name}</span>
-  if (editing) {
-    playerName = <input type="text" value={name} onChange={handleChange} 
-      maxLength={15} />;
-  }
+  let playerName = (!editing ? 
+    <span className="player-name">{name}</span>
+  :
+    <input type="text" value={name} maxLength={15}
+      onChange={(event) => setPlayer(event.target.value)}
+    />
+  );
 
   return <div className={`player ${active && "highlight"}`}>
     {playerName}
     <span className="player-symbol">{symbol}</span>
-    <button onClick={handleClick}>{editing ? "Save" : "Edit"}</button>
+    <button onClick={() => setEditing(prev => !prev)}>
+      {editing ? "Done" : "Edit"}
+    </button>
   </div>
 }
