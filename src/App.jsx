@@ -2,7 +2,7 @@ import Player from './components/Player/Player'
 import GameBoard from './components/GameBoard/GameBoard'
 import GameOver from './components/GameOver/GameOver'
 import './App.css';
-import { useState } from 'react';
+import { use, useState } from 'react';
 
 const WINNING_COMBINATIONS = [
   [0, 1, 2], [3, 4, 5], [6, 7, 8],
@@ -16,14 +16,14 @@ function getActivePlayer(board) {
   return xCount === oCount ? "X" : "O";
 }
 
-function calculateWinner(board) {
+function calculateWinner(board, players) {
   for (const combination of WINNING_COMBINATIONS) {
     const cell1 = board[combination[0]];
     const cell2 = board[combination[1]];
     const cell3 = board[combination[2]];
 
     if (cell1 && cell1 === cell2 && cell1 === cell3) {
-      return cell1;
+      return players[cell1];
     }
   }
 
@@ -32,12 +32,10 @@ function calculateWinner(board) {
 
 export default function App() {
   const [board, setBoard] = useState(Array(9).fill(null));
-  const [player1, setPlayer1] = useState("Player 1");
-  const [player2, setPlayer2] = useState("Player 2");
+  const [players, setPlayers] = useState({X: "Player 1", O: "Player 2"});
 
   const activePlayer = getActivePlayer(board);
-  const winnerSymbol = calculateWinner(board);
-  const winner = winnerSymbol === "X" ? player1 : winnerSymbol === "O" ? player2 : null;
+  const winner = calculateWinner(board, players);
   const isDraw = !winner && !board.includes(null);
 
   function handleClickCell(index) {
@@ -47,8 +45,8 @@ export default function App() {
   return <main>
     <div id="game-container">
       <div id="players">
-        <Player name={player1} symbol="X" active={activePlayer === "X"} setPlayer={setPlayer1} />
-        <Player name={player2} symbol="O" active={activePlayer === "O"} setPlayer={setPlayer2} />
+        <Player name={players.X} symbol="X" active={activePlayer === "X"} setPlayers={setPlayers} />
+        <Player name={players.O} symbol="O" active={activePlayer === "O"} setPlayers={setPlayers} />
       </div>
       {(winner || isDraw) &&
         <GameOver winner={winner} isDraw={isDraw} setBoard={setBoard} />
