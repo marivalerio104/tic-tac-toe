@@ -12,7 +12,7 @@
   background: radial-gradient(circle at top,
       rgba(80, 150, 255, 0.95),
       rgba(20, 60, 160, 0.9)),
-    url('bg-pattern.png');
+    url('/tic-tac-toe/bg-pattern.png');
   background-size: 100% 100%, 30% 30%;
 }
 
